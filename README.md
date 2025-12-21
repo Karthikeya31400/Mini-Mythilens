@@ -14,6 +14,19 @@ It enables users to explore cultural heritage through AI-based monument analysis
 - History dashboard for saved analyses
 
 ---
+### 🌍 Multilingual Translation Support
+The Text Translator supports multiple languages to make cultural heritage accessible globally, including:
+- English
+- Spanish
+- French
+- German
+- Hindi
+- Mandarin Chinese
+- Arabic
+- Portuguese
+- Japanese
+- Korean
+---
 
 ## 🛠 Tech Stack
 - Frontend: React, TypeScript, Tailwind CSS
