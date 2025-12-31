@@ -1,0 +1,73 @@
+{
+  "name": "PathProgress",
+  "type": "object",
+  "properties": {
+    "path_id": {
+      "type": "string",
+      "description": "ID of the heritage path"
+    },
+    "user_email": {
+      "type": "string",
+      "description": "Email of the user"
+    },
+    "current_step": {
+      "type": "number",
+      "default": 0,
+      "description": "Current step number"
+    },
+    "completed_steps": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "default": [],
+      "description": "Array of completed step numbers"
+    },
+    "quiz_scores": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "step": {
+            "type": "number"
+          },
+          "correct": {
+            "type": "boolean"
+          },
+          "answered_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "default": [],
+      "description": "Quiz attempt history"
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the path is completed"
+    },
+    "completion_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date when the path was completed"
+    }
+  },
+  "required": [
+    "path_id",
+    "user_email"
+  ],
+  "rls": {
+    "create": true,
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}
