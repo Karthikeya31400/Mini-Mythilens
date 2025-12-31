@@ -1,0 +1,49 @@
+{
+  "name": "SiteQuestion",
+  "type": "object",
+  "properties": {
+    "site_name": {
+      "type": "string",
+      "description": "Name of the heritage site"
+    },
+    "question": {
+      "type": "string",
+      "description": "User's question"
+    },
+    "answer": {
+      "type": "string",
+      "description": "AI-generated or user-provided answer"
+    },
+    "is_ai_generated": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether answer is AI-generated"
+    },
+    "helpful_count": {
+      "type": "number",
+      "default": 0,
+      "description": "Number of users who found this helpful"
+    }
+  },
+  "required": [
+    "site_name",
+    "question"
+  ],
+  "rls": {
+    "create": true,
+    "read": true,
+    "update": true,
+    "delete": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}
