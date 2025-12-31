@@ -1,0 +1,82 @@
+{
+  "name": "ComparativeAnalysis",
+  "type": "object",
+  "properties": {
+    "item1_id": {
+      "type": "string",
+      "description": "ID of the first item being compared"
+    },
+    "item2_id": {
+      "type": "string",
+      "description": "ID of the second item being compared"
+    },
+    "item_type": {
+      "type": "string",
+      "enum": [
+        "heritage",
+        "translation"
+      ],
+      "description": "Type of items being compared"
+    },
+    "similarities": {
+      "type": "string",
+      "description": "Similarities between the two items"
+    },
+    "differences": {
+      "type": "string",
+      "description": "Differences between the two items"
+    },
+    "connections": {
+      "type": "string",
+      "description": "Potential connections and relationships"
+    },
+    "summary": {
+      "type": "string",
+      "description": "Overall summary of the comparison"
+    }
+  },
+  "required": [
+    "item1_id",
+    "item2_id",
+    "item_type"
+  ],
+  "rls": {
+    "create": true,
+    "read": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}
