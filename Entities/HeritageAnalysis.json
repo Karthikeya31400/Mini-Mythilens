@@ -1,0 +1,88 @@
+{
+  "name": "HeritageAnalysis",
+  "type": "object",
+  "properties": {
+    "image_url": {
+      "type": "string",
+      "description": "URL of the uploaded heritage image"
+    },
+    "title": {
+      "type": "string",
+      "description": "Title or name of the monument"
+    },
+    "history": {
+      "type": "string",
+      "description": "Historical background of the monument"
+    },
+    "mythology": {
+      "type": "string",
+      "description": "Mythological significance"
+    },
+    "cultural_significance": {
+      "type": "string",
+      "description": "Cultural importance"
+    },
+    "architecture": {
+      "type": "string",
+      "description": "Architectural style description"
+    },
+    "location_name": {
+      "type": "string",
+      "description": "Name of the location/city/country"
+    },
+    "latitude": {
+      "type": "number",
+      "description": "Latitude coordinate"
+    },
+    "longitude": {
+      "type": "number",
+      "description": "Longitude coordinate"
+    },
+    "rules_and_guidelines": {
+      "type": "string",
+      "description": "Official rules, dress code, photography restrictions, and cultural etiquette"
+    }
+  },
+  "required": [
+    "image_url"
+  ],
+  "rls": {
+    "create": true,
+    "read": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}
