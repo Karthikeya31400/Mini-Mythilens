@@ -1,0 +1,80 @@
+{
+  "name": "CommunityContribution",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "heritage_site",
+        "historical_fact",
+        "local_legend"
+      ],
+      "description": "Type of contribution"
+    },
+    "title": {
+      "type": "string",
+      "description": "Title of the contribution"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description"
+    },
+    "location_name": {
+      "type": "string",
+      "description": "Location of the site"
+    },
+    "latitude": {
+      "type": "number",
+      "description": "GPS latitude"
+    },
+    "longitude": {
+      "type": "number",
+      "description": "GPS longitude"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Supporting image URL"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected"
+      ],
+      "default": "pending",
+      "description": "Moderation status"
+    },
+    "ai_moderation_result": {
+      "type": "string",
+      "description": "AI moderation feedback"
+    },
+    "ai_accuracy_score": {
+      "type": "number",
+      "description": "AI-assessed accuracy score (0-10)"
+    },
+    "submitter_email": {
+      "type": "string",
+      "description": "Email of submitter"
+    }
+  },
+  "required": [
+    "type",
+    "title",
+    "description"
+  ],
+  "rls": {
+    "create": true,
+    "read": true,
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
