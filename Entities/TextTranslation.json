@@ -1,0 +1,76 @@
+{
+  "name": "TextTranslation",
+  "type": "object",
+  "properties": {
+    "image_url": {
+      "type": "string",
+      "description": "URL of the uploaded inscription image (if any)"
+    },
+    "original_text": {
+      "type": "string",
+      "description": "The original ancient text"
+    },
+    "modern_translation": {
+      "type": "string",
+      "description": "Translation in modern language"
+    },
+    "cultural_meaning": {
+      "type": "string",
+      "description": "Cultural significance of the text"
+    },
+    "historical_importance": {
+      "type": "string",
+      "description": "Historical context and importance"
+    },
+    "input_type": {
+      "type": "string",
+      "enum": [
+        "image",
+        "text"
+      ],
+      "description": "Whether input was image or manual text"
+    }
+  },
+  "required": [
+    "original_text"
+  ],
+  "rls": {
+    "create": true,
+    "read": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}
