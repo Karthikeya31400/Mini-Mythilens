@@ -1,0 +1,66 @@
+{
+  "name": "SiteReview",
+  "type": "object",
+  "properties": {
+    "site_name": {
+      "type": "string",
+      "description": "Name of the heritage site"
+    },
+    "rating": {
+      "type": "number",
+      "description": "Rating from 1-5"
+    },
+    "review_text": {
+      "type": "string",
+      "description": "Review content"
+    },
+    "visit_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of visit"
+    },
+    "photos": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "User-uploaded photo URLs"
+    },
+    "user_name": {
+      "type": "string",
+      "description": "Name of reviewer"
+    }
+  },
+  "required": [
+    "site_name",
+    "rating"
+  ],
+  "rls": {
+    "create": true,
+    "read": true,
+    "update": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}
