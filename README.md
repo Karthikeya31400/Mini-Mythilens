@@ -43,7 +43,7 @@ The Text Translator supports multiple languages to make cultural heritage access
 ---
 
 ## 🎥 Demo Video
-👉 https://drive.google.com/file/d/1OQrqMSnVRfNvHZAgWAVgmhlE0iTyTe1X/view?usp=drive_link
+👉 https://drive.google.com/file/d/1UJycQsmPNNk8FLdRET3BVBkKAEYQCElq/view?usp=sharing
 
 ---
 
