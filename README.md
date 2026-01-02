@@ -48,7 +48,7 @@ The Text Translator supports multiple languages to make cultural heritage access
 ---
 
 ## 🌐 Live MVP
-👉 [https://your-base44-app-link](https://mythi-lens-09a9efc4.base44.app/Home)
+👉 https://mythi-lens-copy-ab9bf8d4.base44.app
 
 ---
 
